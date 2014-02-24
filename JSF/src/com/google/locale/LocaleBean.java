@@ -13,6 +13,7 @@ public class LocaleBean {
 	private Locale locale;
 
 	// Marge with GitHub ( 23-02-14 20:37:00 )
+	// Add Test Message
 	
 	@PostConstruct
 	public void init() {
