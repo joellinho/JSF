@@ -12,6 +12,8 @@ public class LocaleBean {
 
 	private Locale locale;
 
+	// Marge with GitHub ( 23-02-14 20:37:00 )
+	
 	@PostConstruct
 	public void init() {
 		locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
