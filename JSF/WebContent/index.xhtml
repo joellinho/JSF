@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:m="http://java.sun.com/jsf/composite/primefaces">
+
+<h:body>
+	<h:form>
+		<!-- Asignamos en el value el valor en el faces.config, que obtiene los datos desde el mensaje.properties -->
+		<h:outputLabel id="lblNombre" value="#{msg['cliente.Nombre']}"></h:outputLabel>
+		<!-- Asi llamamos de frente a un backing beans -->
+		<h:inputText id="txtNombre" value="#{cliente.nombre}" />
+		<br />
+
+		<!-- Asignamos en el value el valor en el faces.config, que obtiene los datos desde el mensaje.properties-->
+		<!-- Llamando a un BackingBean-->
+		<h:commandButton value="#{msg['button.Procesar']}"
+			action="#{controllerCliente.validar}" />
+	</h:form>
+	<h:form>
+		<h:selectOneMenu value="#{localeBean.language}" onchange="submit()">
+			<f:selectItem itemValue="en" itemLabel="English" />
+			<f:selectItem itemValue="es" itemLabel="Español" />
+		</h:selectOneMenu>
+	</h:form>
+	<!-- 
+	<script src="http://dl.javafx.com/dtfx.js"></script>
+	<script>
+            javafx(
+            {
+                archive: "HelloApplet.jar",
+                draggable: true,
+                width: 150,
+                height: 100,
+                code: "hello.HelloApplet",
+                name: "Wiki"
+            }
+        );
+        </script>
+         -->
+</h:body>
+</html>
