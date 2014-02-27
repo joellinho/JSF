@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean(name="cliente")
 public class Cliente {
-	
+	// Testing for branch
 	private String Nombre="Luyito Gay";
 
 	public String getNombre() {
