@@ -5,10 +5,16 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:m="http://java.sun.com/jsf/composite/primefaces">
+	xmlns:m="http://java.sun.com/jsf/composite/primefaces"
+	xmlns:p="http://primefaces.org/ui" >
 
 <h:body>
+
+<div class="conteiner">
 	<h:form>
+		<p:growl id="growl" showDetail="true"/> 	
+		<p:panel header="Ingrese Usuario y contraseña" >  
+		<p:spinner></p:spinner>
 		<!-- Asignamos en el value el valor en el faces.config, que obtiene los datos desde el mensaje.properties -->
 		<h:outputLabel id="lblNombre" value="#{msg['cliente.Nombre']}"></h:outputLabel>
 		<!-- Asi llamamos de frente a un backing beans -->
@@ -19,6 +25,7 @@
 		<!-- Llamando a un BackingBean-->
 		<h:commandButton value="#{msg['button.Procesar']}"
 			action="#{controllerCliente.validar}" />
+		</p:panel> 
 	</h:form>
 	<h:form>
 		<h:selectOneMenu value="#{localeBean.language}" onchange="submit()">
@@ -26,6 +33,7 @@
 			<f:selectItem itemValue="es" itemLabel="Español" />
 		</h:selectOneMenu>
 	</h:form>
+
 	<!-- 
 	<script src="http://dl.javafx.com/dtfx.js"></script>
 	<script>
@@ -41,10 +49,7 @@
         );
         </script>
          -->
-         
-         <!-- HACIENDO PRUEBAS AL PROYECTO!!!! 
-         Modificando el comentario de la nena... :D
-         --> 
+</div>
    
 </h:body>
 </html>
