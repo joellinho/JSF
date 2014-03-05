@@ -8,13 +8,12 @@
 	xmlns:m="http://java.sun.com/jsf/composite/primefaces"
 	xmlns:p="http://primefaces.org/ui" >
 
-<h:body>
+<body>
 
 <div class="conteiner">
 	<h:form>
 		<p:growl id="growl" showDetail="true"/> 	
 		<p:panel header="Ingrese Usuario y contraseña" >  
-		<p:spinner></p:spinner>
 		<!-- Asignamos en el value el valor en el faces.config, que obtiene los datos desde el mensaje.properties -->
 		<h:outputLabel id="lblNombre" value="#{msg['cliente.Nombre']}"></h:outputLabel>
 		<!-- Asi llamamos de frente a un backing beans -->
@@ -51,5 +50,5 @@
          -->
 </div>
    
-</h:body>
+</body>
 </html>
