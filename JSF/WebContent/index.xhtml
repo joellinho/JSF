@@ -8,29 +8,53 @@
 	xmlns:m="http://java.sun.com/jsf/composite/primefaces"
 	xmlns:p="http://primefaces.org/ui" >
 
-<body>
+<h:head>
 
-<div class="conteiner">
-	<h:form>
-		<p:growl id="growl" showDetail="true"/> 	
-		<p:panel header="Ingrese Usuario y contraseña" >  
-		<!-- Asignamos en el value el valor en el faces.config, que obtiene los datos desde el mensaje.properties -->
-		<h:outputLabel id="lblNombre" value="#{msg['cliente.Nombre']}"></h:outputLabel>
-		<!-- Asi llamamos de frente a un backing beans -->
-		<h:inputText id="txtNombre" value="#{cliente.nombre}" />
-		<br />
+	<link rel="stylesheet" type="text/css" href="resources/css/estilos.css" />	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>login</title>
+	
+	<script type="text/javascript">  
+	    function handleLoginRequest(xhr, status, args) {  
+	        if(args.validationFailed || !args.loggedIn) {  
+	            PF('dlg').jq.effect("shake", { times:5 }, 100);  
+	        }   
+	        else {  
+	            PF('dlg').hide();  
+	            $('#loginLink').fadeOut();  
+	        }  
+	    }  
+	</script> 
+</h:head>
 
-		<!-- Asignamos en el value el valor en el faces.config, que obtiene los datos desde el mensaje.properties-->
-		<!-- Llamando a un BackingBean-->
-		<h:commandButton value="#{msg['button.Procesar']}"
-			action="#{controllerCliente.validar}" />
-		</p:panel> 
-	</h:form>
+<h:body>
+
 	<h:form>
 		<h:selectOneMenu value="#{localeBean.language}" onchange="submit()">
 			<f:selectItem itemValue="en" itemLabel="English" />
 			<f:selectItem itemValue="es" itemLabel="Español" />
 		</h:selectOneMenu>
+	</h:form>
+
+<div class="conteiner">
+	<h:form>
+		<p:growl id="growl" showDetail="true" life="3000"/> 	
+		<p:panel header="#{msg['login.text']}"  >  
+		 	<h:panelGrid columns="2" cellpadding="5">  
+	            <h:outputLabel for="txtUsuario" value="#{msg['usuario.Nombre']}" />  
+	            <p:inputText value="#{usuario.usuario}" id="txtUsuario" required="true" label="username" />  
+	              
+	            <h:outputLabel for="txtPassword" value="#{msg['usuario.Contrasena']}" />  
+	            <h:inputSecret value="#{usuario.clave}" id="txtPassword" required="true" label="password" />  
+	              
+	            <f:facet name="footer">  
+	                <p:commandButton id="loginButton" value="#{msg['button.Procesar']}" icon=".ui-state-default .icon-login" iconPos="right" update="growl"   
+	                    action="#{usuario.Validar}"   
+	                    oncomplete="handleLoginRequest(xhr, status, args)"/>  
+	            </f:facet>  
+       	 	</h:panelGrid>  
+			
+		</p:panel> 
 	</h:form>
 
 	<!-- 
@@ -50,5 +74,5 @@
          -->
 </div>
    
-</body>
+</h:body>
 </html>

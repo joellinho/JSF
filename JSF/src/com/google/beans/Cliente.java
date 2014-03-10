@@ -13,6 +13,18 @@ public class Cliente {
 
 	public void setNombre(String nombre) {
 		Nombre = nombre;
-	}
+	}	
+	
+//<!-- Asignamos en el value el valor en el faces.config, que obtiene los datos desde el mensaje.properties -->
+//<h:outputLabel id="lblNombre" value="#{msg['cliente.Nombre']}"></h:outputLabel>
+//<!-- Asi llamamos de frente a un backing beans -->
+//<h:inputText id="txtNombre" value="#{cliente.nombre}" /> 
+//<br />
+
+//<!-- Asignamos en el value el valor en el faces.config, que obtiene los datos desde el mensaje.properties-->
+//<!-- Llamando a un BackingBean-->
+//<h:commandButton value="#{msg['button.Procesar']}" 
+//action="#{controllerCliente.validar}" /> 
+
 	
 }

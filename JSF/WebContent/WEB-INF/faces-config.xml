@@ -22,6 +22,7 @@
 			<base-name>mensajes</base-name>
 			<var>msg</var>
 		</resource-bundle>
+		
 		<!-- Para las validaciones personalizadas, jsf.properties -->
 		<message-bundle>jsf</message-bundle>
 	</application>
